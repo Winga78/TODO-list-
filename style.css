@@ -1,7 +1,7 @@
 .page 
 {
     width: 1600px;
-    height: 900px;
+    height: 1500px;
     margin : auto;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -25,16 +25,22 @@ input[type="file"] {
     display: none;
 }
 
-.titre-du-journal input{
+.titre-du-journal #MyInput{
     margin-left: 200px;
     margin-bottom: 20px;
-    padding-top : 10px; 
-    padding-right: 40px;
-    padding-bottom: 10px;
-    padding-left: 5px;
+    padding : 10px;
     border: 2px solid #d9d9d9;
     border-radius: 5px;
 }
+.titre-du-journal #register {
+    margin-left: 700px;
+    padding : 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+
 
 .tâches 
 {
@@ -46,6 +52,10 @@ input[type="file"] {
     opacity: 0.33;
     box-shadow: 2px 2px 15px rgb(10, 10, 10);
     
+}
+
+.tâches h3 {
+    margin-left: 200px;
 }
 
 .commentaire 
@@ -62,7 +72,9 @@ input[type="file"] {
     border-radius: 20px;
 }
 
-
+.register-form{
+    margin-left: 100px;
+}
 .btn {
     padding: 0;
     border-radius:0% ;

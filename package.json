@@ -1,0 +1,19 @@
+{
+  "name": "todo-list-",
+  "version": "1.0.0",
+  "description": "application pour la gestion des tâches",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Winga78/TODO-list-.git"
+  },
+  "author": "Winga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Winga78/TODO-list-/issues"
+  },
+  "homepage": "https://github.com/Winga78/TODO-list-#readme"
+}

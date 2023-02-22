@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>Le titre de ma page</title>
-        <link href="style.css" rel="stylesheet">
-        <script type = "module" src= "journ.js"></script>
+        <link rel="stylesheet" href="style.css" >
+        <script type = "module" src= "index.js"></script>
        
     </head>
     <body>
      <div class = "page">
         <header>
-                <img class = "logo" src ="logo.png" alt = "logo de l'application"> 
+                <img class = "logo" src ="images/logo.png" alt = "logo de l'application"> 
                
         </header>
         <nav class= à-propos>
@@ -23,17 +23,22 @@
             <aside class = "categories">
                 <p>CATÉGORIES</p>
             </aside>
-            <form class = titre-du-journal>
-                <input type="text" placeholder="Titre du journal" name = "title">
+
+            <form class ="titre-du-journal">
+                <input type="text" placeholder="Titre du journal" name = "title" id = "MyInput">
+                <input type = "submit" id = "register" name = "register" value = "Sauvegarder"> 
             </form>
-           
             <div class = "image-de-rubrique">
                 <label for = "rubrique" class=" gg-add-r"></label>
-                <input type = "file" id ="rubrique" name = "rubrique" accept = "image/png , image/jpg"> 
+                <input type = "file" id ="rubrique" name = "rubrique" accept = "image/png , image/jpg">   
             </div>
            
                <div class = "la-todo-list">
-                <section class = "tâches"></section>
+                <section class = "tâches">
+                    <div class = "myTitle"></div>
+                    <div class = "MytodoList"></div>
+                    <input type = "text" id = "addTodo" name = "addTodo">
+                </section>
                 <section class = "commentaire"></section>
               </div> 
         </main>
