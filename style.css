@@ -1,0 +1,143 @@
+.page 
+{
+    width: 1600px;
+    height: 900px;
+    margin : auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+aside 
+{
+    float: left;
+    height: 847px;
+    width: 250px; 
+}
+
+.la-todo-list
+{
+    width: 1047px;
+    height: 250px;
+    margin-left: 447px;
+    padding-top: 50px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.titre-du-journal input{
+    margin-left: 200px;
+    margin-bottom: 20px;
+    padding-top : 10px; 
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border: 2px solid #d9d9d9;
+    border-radius: 5px;
+}
+
+.tâches 
+{
+    float: left;
+    width: 500px;
+    height: 600px;
+    border: 2px solid rgb(204, 204, 204);
+    border-radius: 7px;
+    opacity: 0.33;
+    box-shadow: 2px 2px 15px rgb(10, 10, 10);
+    
+}
+
+.commentaire 
+{
+    margin-left: 500px;
+    height: 500px;
+}
+.image-de-rubrique 
+{
+    width: 1000px;
+    height: 170px;
+    margin-left: 447px;
+    border: 2px solid #d9d9d9;
+    border-radius: 20px;
+}
+
+
+.btn {
+    padding: 0;
+    border-radius:0% ;
+    border: 0cap;
+   }
+  
+.logo {
+    width : 100px;
+    height : 100px;
+}
+
+ul li{
+    list-style: none;
+    margin : 0;
+    padding: 0;
+    display : inline-block;
+    padding-left: 60px;
+}
+
+ul {
+   margin-left: 100px;
+   margin-top: -50px;
+   text-align: center;
+}
+
+.gg-add-r {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgb(220, 220, 220);
+    transform: scale(var(--ggs,2));
+    border-radius: 4px;
+    opacity: 0.33;
+    margin-left: 470px;
+    margin-top: 50px;
+    cursor: pointer;
+   }
+   
+   .gg-add-r::after,
+   .gg-add-r::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 5px;
+    top: 8px;
+    left: 4px
+   }
+   
+   .gg-add-r::after {
+    width: 2px;
+    height: 10px;
+    top: 4px;
+    left: 8px
+   } 
+
+main{
+    padding-top : 50px;
+}
+
+.categories p{
+    color: rgb(136, 136, 136);
+    font-size: 15px;
+    font-weight : bold;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(194, 175, 175);
+    font-size: 17px #d9d9d9;
+    font-weight : bold;
+     
+}
