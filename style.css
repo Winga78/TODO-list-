@@ -32,7 +32,7 @@ input[type="file"] {
     border: 2px solid #d9d9d9;
     border-radius: 5px;
 }
-.titre-du-journal #register {
+.btn-register {
     margin-left: 700px;
     padding : 10px;
     border: none;
@@ -72,9 +72,6 @@ input[type="file"] {
     border-radius: 20px;
 }
 
-.register-form{
-    margin-left: 100px;
-}
 .btn {
     padding: 0;
     border-radius:0% ;

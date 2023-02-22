@@ -1,0 +1,12 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "créer un base de donnée",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --port 8081 --no-cors db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

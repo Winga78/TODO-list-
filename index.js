@@ -1,4 +1,4 @@
-//const pieces = await fetch('http://localhost:8081/journal').then(journal => journal.json())
+const jour = await fetch('http://localhost:8081/jour').then(journal => journal.json())
 
 function AddTitle() {
     const input = document.getElementById("MyInput");
@@ -30,28 +30,34 @@ function AddTodoArea() {
 
 }
 
+
+function RegisterJournal() {
+   const formulaireJournal = document.querySelector(".btn-register");
+    formulaireJournal.addEventListener("click", function(event){
+        const tab = [];
+        event.preventDefault();
+        const myTile = document.querySelector(".myTitle");
+        const mytodoList = document.querySelectorAll(".MytodoList p");
+        for(let i = 0; i<mytodoList.length; i+=1){
+           console.log(myTile.innerText, mytodoList[i].innerText);
+           tab.push(mytodoList[i].innerText) 
+        }
+        const journal = {
+            id : jour.length,
+            titre : myTile.innerText,
+            tâches : tab
+         }
+         const chargeUtile = JSON.stringify(journal);
+         console.log(chargeUtile);
+         fetch('http://localhost:8081/jour', {
+         method : "POST",
+         headers : {"Content-Type": "application/json"},
+         body : chargeUtile 
+    })
+      })
+}
+
 AddTitle();
 AddTodoArea();
-
-
-// function RegisterJournal() {
-//     formulaireJournal = document.querySelector(".titre-du-journal");
-
-//     formulaireJournal.addEventListener("submit", function(event){
-//         event.preventDefault();
-//         const journal = {
-//           pieceId: parseInt(event.target.querySelector("[name=piece-id]").value),
-//           utilisateur: event.target.querySelector("[name=utilisateur").value,
-//           commentaire: event.target.querySelector("[name=commentaire]").value,
-//           nbEtoiles : parseInt(event.target.querySelector("[name=nbEtoiles]").value)
-//         }
-//         const chargeUtile = JSON.stringify(avis);
-//         console.log(chargeUtile);
-//         fetch('http://localhost:8081/avis', {
-//         method : "POST",
-//         headers : {"Content-Type": "application/json"},
-//         body : chargeUtile 
-//     })
-//       })
-// }
+RegisterJournal()
 
