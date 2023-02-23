@@ -1,63 +1,103 @@
-const jour = await fetch('http://localhost:8081/jour').then(journal => journal.json())
+const journals = await fetch('http://localhost:8081/journal').then(journal => journal.json())
+let count = 0;
+
+function PostJournal(data_page_info, titleinfo){
+    const tab = [];
+    for(let i = 0; i<data_page_info.length; i+=1){
+        tab.push(data_page_info[i].innerText) 
+    }
+     const journal = {
+         id : journals.length,
+         titre : titleinfo.innerText,
+         tâches : tab
+    }
+    const chargeUtile = JSON.stringify(journal);
+    fetch('http://localhost:8081/journal', {
+      method : "POST",
+      headers : {"Content-Type": "application/json"},
+      body : chargeUtile 
+    })  
+}
+
+async function JournaById(){
+
+    document.onclick = function(event){
+        const reponse = fetch(`http://localhost:8081/journal/${id}`);
+        console.log(reponse);
+    }
+}
+
+function GenerateJournal() {
+
+}
 
 function AddTitle() {
-    const input = document.getElementById("MyInput");
-    input.addEventListener('keypress', function(event){
+    const inputTitle = document.getElementById("MyInput");
+    inputTitle.addEventListener('keypress', function(event){
         if(event.key === "Enter"){
             document.querySelector(".myTitle").innerHTML = "";
             event.preventDefault();
             const sectionElement = document.querySelector(".myTitle");
             const titleTodo = document.createElement("h3");
-            titleTodo.innerText = input.value;
+            titleTodo.innerText = inputTitle.value;
             sectionElement.appendChild(titleTodo);
         }
  })
 }
 
 function AddTodoArea() {
-    const input = document.getElementById("addTodo");
-    input.addEventListener('keypress', function(event){
+    
+    const inputStain = document.getElementById("addTodo");
+    inputStain.addEventListener('keypress', function(event){
         if(event.key === "Enter"){
+            count+=1 ; 
             event.preventDefault();
             const sectionMytodo = document.querySelector(".MytodoList");
-            const elementTodoList = document.createElement("p");
-            elementTodoList.innerText = input.value;
-            sectionMytodo.appendChild(elementTodoList);
-            input.value = "";
+            const checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.name = "latâche";
+            checkbox.id = count;
+            const label = document.createElement('label');
+            label.htmlFor = count;
+            label.appendChild(document.createTextNode(`${inputStain.value}`));
+            sectionMytodo.appendChild(checkbox);
+            sectionMytodo.appendChild(label);
+            inputStain.value = "";
+            
         }
 
     })
 
 }
 
+function CreateCategorieList(Title_list)
+{
+    const divElement = document.querySelector(".categories");
+    const divmescatElement = document.querySelector(".mescat");
+    const ulElement = document.createElement("ul");
+    const liElement = document.createElement('li');
+    liElement.innerText = Title_list.innerText; 
+    ulElement.appendChild(liElement);
+    divmescatElement.appendChild(ulElement);
+    divElement.appendChild(divmescatElement);
+}
 
-function RegisterJournal() {
-   const formulaireJournal = document.querySelector(".btn-register");
-    formulaireJournal.addEventListener("click", function(event){
-        const tab = [];
+
+function RegisterInfoJournal() {
+    const btn_register_Element= document.querySelector(".btn-register");
+    btn_register_Element.addEventListener("click", function(event){
         event.preventDefault();
-        const myTile = document.querySelector(".myTitle");
-        const mytodoList = document.querySelectorAll(".MytodoList p");
-        for(let i = 0; i<mytodoList.length; i+=1){
-           console.log(myTile.innerText, mytodoList[i].innerText);
-           tab.push(mytodoList[i].innerText) 
-        }
-        const journal = {
-            id : jour.length,
-            titre : myTile.innerText,
-            tâches : tab
-         }
-         const chargeUtile = JSON.stringify(journal);
-         console.log(chargeUtile);
-         fetch('http://localhost:8081/jour', {
-         method : "POST",
-         headers : {"Content-Type": "application/json"},
-         body : chargeUtile 
+        const myTileElement = document.querySelector(".myTitle");
+        CreateCategorieList(myTileElement);
+        const mytodoList = document.querySelectorAll(".MytodoList label");
+        PostJournal(mytodoList,myTileElement); 
     })
-      })
 }
+
+
+
 
 AddTitle();
 AddTodoArea();
-RegisterJournal()
+RegisterInfoJournal();
 

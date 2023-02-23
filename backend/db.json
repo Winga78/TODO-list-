@@ -1,12 +1,10 @@
 {
-  "jour": [
+  "journal": [
     {
-      "id": 2,
-      "titre": "Rendez-vous",
+      "id": 1,
+      "titre": "Voyages",
       "tâches": [
-        "Détartrage des dents chez le dentiste",
-        "Conseiller bancaire pour plus d'oseille",
-        "Acheter une maison dans la semaine"
+        "Acheter une valise"
       ]
     }
   ]

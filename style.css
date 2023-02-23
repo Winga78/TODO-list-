@@ -6,11 +6,18 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
-aside 
+.categories 
 {
     float: left;
     height: 847px;
     width: 250px; 
+}
+
+.mescat ul li {
+  margin-top: 50px;
+  margin-left:-297px;
+    color:rgb(194, 175, 175);
+    padding: 3px;
 }
 
 .la-todo-list
