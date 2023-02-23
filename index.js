@@ -11,6 +11,7 @@ function PostJournal(data_page_info, titleinfo){
          titre : titleinfo.innerText,
          tâches : tab
     }
+    localStorage.setItem('idJournal' , journal.id);
     const chargeUtile = JSON.stringify(journal);
     fetch('http://localhost:8081/journal', {
       method : "POST",
@@ -19,12 +20,26 @@ function PostJournal(data_page_info, titleinfo){
     })  
 }
 
-async function JournaById(){
+async function JournalById(){
+    const id = parseInt(localStorage.getItem('idJournal'));
+    const reponse = await fetch(`http://localhost:8081/journal/${id}`);
+    const todo = await reponse.json()
+ 
+        document.onclick = function(event){
+           
+            if(journals[0].id === todo.id){
+                
+                console.log(todo);
 
-    document.onclick = function(event){
-        const reponse = fetch(`http://localhost:8081/journal/${id}`);
-        console.log(reponse);
-    }
+            }
+
+            console.log("ça nemarche pas");
+            console.log(typeof(journals[0].id));
+    
+            console.log(typeof(id));
+           
+        }
+
 }
 
 function GenerateJournal() {
@@ -100,4 +115,5 @@ function RegisterInfoJournal() {
 AddTitle();
 AddTodoArea();
 RegisterInfoJournal();
+JournalById();
 
