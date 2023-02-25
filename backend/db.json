@@ -13,7 +13,22 @@
     {
       "id": 3,
       "tâches": "c",
-      "termine": false
+      "termine": true
+    },
+    {
+      "id": 4,
+      "tâches": "a",
+      "termine": true
+    },
+    {
+      "id": 5,
+      "tâches": "b",
+      "termine": true
+    },
+    {
+      "id": 6,
+      "tâches": "c",
+      "termine": true
     }
   ]
 }

@@ -49,29 +49,41 @@ function PostJournal(stainsInfo){
       body : chargeUtile 
     })  
 }
-
-async function UpdateStain(){
-    const divElements = document.querySelectorAll(".addElement div input");
-    for(let i = 0 ; i < divElements.length ; i+=1){
-        divElements[i].addEventListener("click", async function(event){
-        const id =parseInt(event.target.id);
-           if(divElements[i].checked !== false && id === journals[i].id){
-            const journal = {id : journals[i].id,tâches : journals[i].tâches, termine : true}
-            const chargeUtile = JSON.stringify(journal);
-            fetch(`http://localhost:8081/journal/${id}`,{
-                method : "PUT",
-                headers : {"Content-Type": "application/json"},
-                body : chargeUtile });}});} 
-}
-UpdateStain();
-
-
 const tachesFiltrees = journals.filter(function(tâche){
     return tâche.termine !=true;
 });
 
-document.querySelector('input[name ="latâche"]').innerHTML = "";
+document.querySelector('.addElement').innerHTML = "";
 generat(tachesFiltrees);
+
+async function UpdateStain(){
+    const divElements = document.querySelectorAll(".addElement div input");
+    
+    for(let i = 0 ; i < divElements.length ; i+=1){
+        console.log(divElements[i]);
+        divElements[i].addEventListener("click", async function(event){
+        const id =parseInt(event.target.id);
+        console.log(divElements[i].checked , id,tachesFiltrees[i].id );
+           if(divElements[i].checked !== false && id === tachesFiltrees[i].id){
+           
+            const journal = {id : tachesFiltrees[i].id,tâches : tachesFiltrees[i].tâches, termine : true}
+            const chargeUtile = JSON.stringify(journal);
+            fetch(`http://localhost:8081/journal/${id}`,{
+                method : "PUT",
+                headers : {"Content-Type": "application/json"},
+                body : chargeUtile });
+              
+            }
+          
+
+            });
+    } 
+}
+UpdateStain();
+
+
+
+
    
 
 
