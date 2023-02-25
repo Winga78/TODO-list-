@@ -3,32 +3,17 @@
     {
       "id": 1,
       "tâches": "a",
-      "termine": true
+      "termine": false
     },
     {
       "id": 2,
       "tâches": "b",
-      "termine": true
+      "termine": false
     },
     {
       "id": 3,
       "tâches": "c",
-      "termine": true
-    },
-    {
-      "id": 4,
-      "tâches": "a",
-      "termine": true
-    },
-    {
-      "id": 5,
-      "tâches": "b",
-      "termine": true
-    },
-    {
-      "id": 6,
-      "tâches": "c",
-      "termine": true
+      "termine": false
     }
   ]
 }

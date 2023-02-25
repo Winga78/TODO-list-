@@ -1,4 +1,5 @@
 const journals = await fetch('http://localhost:8081/journal').then(journal => journal.json())
+
 let count = 0;
 
 function generat(statusjournal)
@@ -6,9 +7,10 @@ function generat(statusjournal)
     const sectionMytodo = document.querySelector(".addElement");
    if(statusjournal.length !==0) {
     for(let i=0 ; i<statusjournal.length;i+=1){
-
-          
             const checkboxContainer  = document.createElement("div");
+            const deleteButton = document.createElement("button");
+            deleteButton.dataset.id = statusjournal[i].id; 
+            deleteButton.classList.add("gg-remove");
             const checkbox = document.createElement('input');
             checkbox.type = "checkbox";
             checkbox.name = "latâche";
@@ -18,6 +20,7 @@ function generat(statusjournal)
             label.appendChild(document.createTextNode(`${statusjournal[i].tâches}`));
             checkboxContainer.appendChild(checkbox);
             checkboxContainer.appendChild(label);
+            checkboxContainer.appendChild(deleteButton);
             sectionMytodo.appendChild(checkboxContainer);
       
    }
@@ -84,12 +87,28 @@ async function UpdateStain(statusjournal){
     } 
 }
 
+async function DeleteStain(){
+    const divElements = document.querySelectorAll(".addElement div button");
+    console.log(divElements);
+    for(let i = 0 ; i < divElements.length ; i+=1){
+        console.log(divElements[i]);
+        divElements[i].addEventListener("click", async function(event){
+        const id =parseInt(event.target.dataset.id);
+        event.preventDefault();
+        const j = await fetch(`http://localhost:8081/journal/${id}`, {
+         method : "DELETE"
+        });
+    });
+  }
+}
+
 
 
 const boutonTakeAll = document.querySelector(".btn-tout");
 boutonTakeAll.addEventListener("click", function(){
     document.querySelector('.addElement').innerHTML = "";
    generat(journals);
+   DeleteStain()
 })
 
 const boutonFilterAfaire = document.querySelector(".btn-encours");
@@ -97,7 +116,7 @@ boutonFilterAfaire.addEventListener("click", function(){
     
  const tachesFiltrees = journals.filter(function(tâche){
     return tâche.termine !=true;
- });
+});
     document.querySelector('.addElement').innerHTML = "";
     generat(tachesFiltrees);
     UpdateStain(tachesFiltrees);
@@ -120,6 +139,7 @@ boutonFilterFaites.addEventListener("click", function(){
    }
     
 })
+
 
 
 
