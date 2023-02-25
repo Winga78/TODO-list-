@@ -3,10 +3,11 @@ let count = 0;
 
 function generat(statusjournal)
 {
+    const sectionMytodo = document.querySelector(".addElement");
+   if(statusjournal.length !==0) {
     for(let i=0 ; i<statusjournal.length;i+=1){
-       if(statusjournal.length!=0){
 
-           const sectionMytodo = document.querySelector(".addElement");
+          
             const checkboxContainer  = document.createElement("div");
             const checkbox = document.createElement('input');
             checkbox.type = "checkbox";
@@ -18,11 +19,19 @@ function generat(statusjournal)
             checkboxContainer.appendChild(checkbox);
             checkboxContainer.appendChild(label);
             sectionMytodo.appendChild(checkboxContainer);
-      }
+      
    }
+}
+else {
+    const pElement = document.createElement('p');
+    pElement.innerText = "(aucune tâche)"
+    pElement.classList.add('info');
+    sectionMytodo.appendChild(pElement);
 
 }
-generat(journals);
+ 
+
+}
 
 function CreateTodoStain() {
     const inputStain = document.getElementById("addTodo");
@@ -49,24 +58,19 @@ function PostJournal(stainsInfo){
       body : chargeUtile 
     })  
 }
-const tachesFiltrees = journals.filter(function(tâche){
-    return tâche.termine !=true;
-});
 
-document.querySelector('.addElement').innerHTML = "";
-generat(tachesFiltrees);
 
-async function UpdateStain(){
+async function UpdateStain(statusjournal){
     const divElements = document.querySelectorAll(".addElement div input");
-    
+    console.log(divElements);
     for(let i = 0 ; i < divElements.length ; i+=1){
         console.log(divElements[i]);
         divElements[i].addEventListener("click", async function(event){
         const id =parseInt(event.target.id);
-        console.log(divElements[i].checked , id,tachesFiltrees[i].id );
-           if(divElements[i].checked !== false && id === tachesFiltrees[i].id){
+        console.log(divElements[i].checked , id,statusjournal[i].id );
+           if(divElements[i].checked !== false && id === statusjournal[i].id){
            
-            const journal = {id : tachesFiltrees[i].id,tâches : tachesFiltrees[i].tâches, termine : true}
+            const journal = {id : statusjournal[i].id,tâches : statusjournal[i].tâches, termine : true}
             const chargeUtile = JSON.stringify(journal);
             fetch(`http://localhost:8081/journal/${id}`,{
                 method : "PUT",
@@ -79,7 +83,45 @@ async function UpdateStain(){
             });
     } 
 }
-UpdateStain();
+
+
+
+const boutonTakeAll = document.querySelector(".btn-tout");
+boutonTakeAll.addEventListener("click", function(){
+    document.querySelector('.addElement').innerHTML = "";
+   generat(journals);
+})
+
+const boutonFilterAfaire = document.querySelector(".btn-encours");
+boutonFilterAfaire.addEventListener("click", function(){
+    
+ const tachesFiltrees = journals.filter(function(tâche){
+    return tâche.termine !=true;
+ });
+    document.querySelector('.addElement').innerHTML = "";
+    generat(tachesFiltrees);
+    UpdateStain(tachesFiltrees);
+   
+})
+
+
+const boutonFilterFaites = document.querySelector(".btn-fait");
+const sectionaddElement = document.querySelector(".addElement")
+boutonFilterFaites.addEventListener("click", function(){
+    const tachesFiltrees = journals.filter(function(tâche){
+        return tâche.termine !=false;
+    });
+    document.querySelector('.addElement').innerHTML = "";
+   for(let i = 0 ; i < tachesFiltrees.length ; i+=1){
+    const textTâches = document.createElement('p');
+    textTâches.classList.add("finish");
+    textTâches.innerText = tachesFiltrees[i].tâches;
+    sectionaddElement.appendChild(textTâches);
+   }
+    
+})
+
+
 
 
 

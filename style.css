@@ -11,35 +11,52 @@ main{
 }
 .la-todo-list
 {
-    width: 1047px;
+    width: 500px;
     height: 250px;
-    margin-left: 447px;
+    margin-left: 200px;
     padding-top: 50px;
 }
 
 input[type="file"] {
     display: none;
 }
+.btn-filter{
+    display: flex;
+    padding-top: 10px;
+    margin-left: 150px;
+}
+.btn-filter button 
+{
+    border: none;
+    padding: 10px;
+    margin-left: -10px
+}
 
 #addTodo {
-   margin-left: -250px;
+   margin-left: -2px;
    border-radius: 5px;
    border: solid #d9d9d9;
    padding-right: 280px;
    padding-top: 10px;
 
 }
-#register {
-    margin-left: 20px;
-    padding : 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffe4cf;
-    cursor: pointer;
+
+.addElement {
+    padding-top: 50px;
+}
+.finish {
+    color :rgb(155, 78, 78);
+    text-decoration-line: line-through;
 }
 
+.info{
+    font-style: italic;
+    color : gray
+
+}
 .addElement div {
-    margin-left: -250px;
+    margin-left: 5px;
+    margin-top: 10px;
 }
 
 .commentaire 
