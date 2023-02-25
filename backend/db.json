@@ -2,10 +2,18 @@
   "journal": [
     {
       "id": 1,
-      "titre": "Voyages",
-      "tâches": [
-        "Acheter une valise"
-      ]
+      "tâches": "a",
+      "termine": true
+    },
+    {
+      "id": 2,
+      "tâches": "b",
+      "termine": true
+    },
+    {
+      "id": 3,
+      "tâches": "c",
+      "termine": false
     }
   ]
 }

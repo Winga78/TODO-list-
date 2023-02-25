@@ -13,22 +13,9 @@
                 <img class = "logo" src ="images/logo.png" alt = "logo de l'application"> 
                
         </header>
-        <nav class= à-propos>
-            <ul> 
-                <li><a href = # > Les listes</a></li>
-                <li><a href = # > Comment ça marche ?</a></li>
-            </ul>
-        </nav>
+      
         <main> 
-            <aside class = "categories">
-                <p>CATÉGORIES</p>
-                <div class = "mescat"></div>
-            </aside>
-
-            <form class ="titre-du-journal">
-                <input type="text" placeholder="Titre du journal" name = "title" id = "MyInput">
-                <button class = "btn-register"> Enregistrer</button> 
-            </form>
+           
             <div class = "image-de-rubrique"> 
                 <label for = "rubrique" class=" gg-add-r"></label>
                 <input type = "file" id ="rubrique" name = "rubrique" accept = "image/png , image/jpg">   
@@ -36,9 +23,10 @@
            
                <div class = "la-todo-list">
                 <section class = "tâches">
-                    <div class = "myTitle"></div>
-                    <div class = "MytodoList"></div>
-                    <input type = "text" id = "addTodo" name = "addTodo">
+                    <form class ="addElement">
+                        <input type = "text" id = "addTodo" name = "addTodo"> 
+                        <input type = "submit" id = "register" value = "ajouter">    
+                    </form>
                 </section>
                 <section class = "commentaire"></section>
               </div> 

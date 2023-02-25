@@ -1,17 +1,47 @@
 const journals = await fetch('http://localhost:8081/journal').then(journal => journal.json())
 let count = 0;
 
-function PostJournal(data_page_info, titleinfo){
-    const tab = [];
-    for(let i = 0; i<data_page_info.length; i+=1){
-        tab.push(data_page_info[i].innerText) 
-    }
-     const journal = {
-         id : journals.length,
-         titre : titleinfo.innerText,
-         tâches : tab
-    }
-    localStorage.setItem('idJournal' , journal.id);
+function generat(statusjournal)
+{
+    for(let i=0 ; i<statusjournal.length;i+=1){
+       if(statusjournal.length!=0){
+
+           const sectionMytodo = document.querySelector(".addElement");
+            const checkboxContainer  = document.createElement("div");
+            const checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.name = "latâche";
+            checkbox.id = statusjournal[i].id;
+            const label = document.createElement('label');
+            label.htmlFor = statusjournal[i].id;
+            label.appendChild(document.createTextNode(`${statusjournal[i].tâches}`));
+            checkboxContainer.appendChild(checkbox);
+            checkboxContainer.appendChild(label);
+            sectionMytodo.appendChild(checkboxContainer);
+      }
+   }
+
+}
+generat(journals);
+
+function CreateTodoStain() {
+    const inputStain = document.getElementById("addTodo");
+    inputStain.addEventListener('keypress', function(event){
+        if(event.key === "Enter"){
+            event.preventDefault();
+            PostJournal(inputStain.value);
+            inputStain.value = "";   
+        }
+    })
+}
+CreateTodoStain();
+
+function PostJournal(stainsInfo){
+    const journal = {
+        id : journals.length+1,
+        tâches : stainsInfo,
+        termine : false
+   }
     const chargeUtile = JSON.stringify(journal);
     fetch('http://localhost:8081/journal', {
       method : "POST",
@@ -20,100 +50,29 @@ function PostJournal(data_page_info, titleinfo){
     })  
 }
 
-async function JournalById(){
-    const id = parseInt(localStorage.getItem('idJournal'));
-    const reponse = await fetch(`http://localhost:8081/journal/${id}`);
-    const todo = await reponse.json()
- 
-        document.onclick = function(event){
-           
-            if(journals[0].id === todo.id){
-                
-                console.log(todo);
-
-            }
-
-            console.log("ça nemarche pas");
-            console.log(typeof(journals[0].id));
-    
-            console.log(typeof(id));
-           
-        }
-
+async function UpdateStain(){
+    const divElements = document.querySelectorAll(".addElement div input");
+    for(let i = 0 ; i < divElements.length ; i+=1){
+        divElements[i].addEventListener("click", async function(event){
+        const id =parseInt(event.target.id);
+           if(divElements[i].checked !== false && id === journals[i].id){
+            const journal = {id : journals[i].id,tâches : journals[i].tâches, termine : true}
+            const chargeUtile = JSON.stringify(journal);
+            fetch(`http://localhost:8081/journal/${id}`,{
+                method : "PUT",
+                headers : {"Content-Type": "application/json"},
+                body : chargeUtile });}});} 
 }
-
-function GenerateJournal() {
-
-}
-
-function AddTitle() {
-    const inputTitle = document.getElementById("MyInput");
-    inputTitle.addEventListener('keypress', function(event){
-        if(event.key === "Enter"){
-            document.querySelector(".myTitle").innerHTML = "";
-            event.preventDefault();
-            const sectionElement = document.querySelector(".myTitle");
-            const titleTodo = document.createElement("h3");
-            titleTodo.innerText = inputTitle.value;
-            sectionElement.appendChild(titleTodo);
-        }
- })
-}
-
-function AddTodoArea() {
-    
-    const inputStain = document.getElementById("addTodo");
-    inputStain.addEventListener('keypress', function(event){
-        if(event.key === "Enter"){
-            count+=1 ; 
-            event.preventDefault();
-            const sectionMytodo = document.querySelector(".MytodoList");
-            const checkbox = document.createElement('input');
-            checkbox.type = "checkbox";
-            checkbox.name = "latâche";
-            checkbox.id = count;
-            const label = document.createElement('label');
-            label.htmlFor = count;
-            label.appendChild(document.createTextNode(`${inputStain.value}`));
-            sectionMytodo.appendChild(checkbox);
-            sectionMytodo.appendChild(label);
-            inputStain.value = "";
-            
-        }
-
-    })
-
-}
-
-function CreateCategorieList(Title_list)
-{
-    const divElement = document.querySelector(".categories");
-    const divmescatElement = document.querySelector(".mescat");
-    const ulElement = document.createElement("ul");
-    const liElement = document.createElement('li');
-    liElement.innerText = Title_list.innerText; 
-    ulElement.appendChild(liElement);
-    divmescatElement.appendChild(ulElement);
-    divElement.appendChild(divmescatElement);
-}
+UpdateStain();
 
 
-function RegisterInfoJournal() {
-    const btn_register_Element= document.querySelector(".btn-register");
-    btn_register_Element.addEventListener("click", function(event){
-        event.preventDefault();
-        const myTileElement = document.querySelector(".myTitle");
-        CreateCategorieList(myTileElement);
-        const mytodoList = document.querySelectorAll(".MytodoList label");
-        PostJournal(mytodoList,myTileElement); 
-    })
-}
+const tachesFiltrees = journals.filter(function(tâche){
+    return tâche.termine !=true;
+});
+
+document.querySelector('input[name ="latâche"]').innerHTML = "";
+generat(tachesFiltrees);
+   
 
 
-
-
-AddTitle();
-AddTodoArea();
-RegisterInfoJournal();
-JournalById();
 

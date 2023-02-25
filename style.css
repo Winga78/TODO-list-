@@ -1,25 +1,14 @@
 .page 
 {
-    width: 1600px;
+    width: 1000px;
     height: 1500px;
     margin : auto;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-}
-.categories 
-{
-    float: left;
-    height: 847px;
-    width: 250px; 
 }
 
-.mescat ul li {
-  margin-top: 50px;
-  margin-left:-297px;
-    color:rgb(194, 175, 175);
-    padding: 3px;
+main{
+    padding-top : 50px;
 }
-
 .la-todo-list
 {
     width: 1047px;
@@ -32,37 +21,25 @@ input[type="file"] {
     display: none;
 }
 
-.titre-du-journal #MyInput{
-    margin-left: 200px;
-    margin-bottom: 20px;
-    padding : 10px;
-    border: 2px solid #d9d9d9;
-    border-radius: 5px;
+#addTodo {
+   margin-left: -250px;
+   border-radius: 5px;
+   border: solid #d9d9d9;
+   padding-right: 280px;
+   padding-top: 10px;
+
 }
-.btn-register {
-    margin-left: 700px;
+#register {
+    margin-left: 20px;
     padding : 10px;
     border: none;
     border-radius: 5px;
-    background-color: #d9d9d9;
+    background-color: #ffe4cf;
     cursor: pointer;
 }
 
-
-.tâches 
-{
-    float: left;
-    width: 500px;
-    height: 600px;
-    border: 2px solid rgb(204, 204, 204);
-    border-radius: 7px;
-    opacity: 0.33;
-    box-shadow: 2px 2px 15px rgb(10, 10, 10);
-    
-}
-
-.tâches h3 {
-    margin-left: 200px;
+.addElement div {
+    margin-left: -250px;
 }
 
 .commentaire 
@@ -72,9 +49,9 @@ input[type="file"] {
 }
 .image-de-rubrique 
 {
-    width: 1000px;
+    width: 500px;
     height: 170px;
-    margin-left: 447px;
+    margin-left: 200px;
     border: 2px solid #d9d9d9;
     border-radius: 20px;
 }
@@ -114,8 +91,8 @@ ul {
     transform: scale(var(--ggs,2));
     border-radius: 4px;
     opacity: 0.33;
-    margin-left: 470px;
-    margin-top: 50px;
+    margin-left: 250px;
+    margin-top: 60px;
     cursor: pointer;
    }
    
@@ -140,20 +117,3 @@ ul {
     left: 8px
    } 
 
-main{
-    padding-top : 50px;
-}
-
-.categories p{
-    color: rgb(136, 136, 136);
-    font-size: 15px;
-    font-weight : bold;
-}
-
-a{
-    text-decoration: none;
-    color: rgb(194, 175, 175);
-    font-size: 17px #d9d9d9;
-    font-weight : bold;
-     
-}
