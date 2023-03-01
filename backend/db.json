@@ -2,18 +2,19 @@
   "journal": [
     {
       "id": 1,
-      "tâches": "a",
-      "termine": false
-    },
-    {
-      "id": 2,
-      "tâches": "b",
-      "termine": false
-    },
-    {
-      "id": 3,
-      "tâches": "c",
-      "termine": false
+      "titre": "voyages",
+      "info": [
+        {
+          "id_todo": 0,
+          "tâches": "acheter une valise et des sacs à dos",
+          "status_termine": true
+        },
+        {
+          "id_todo": 1,
+          "tâches": "prendre de la crème solaire",
+          "status_termine": false
+        }
+      ]
     }
   ]
 }

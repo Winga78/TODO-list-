@@ -8,36 +8,27 @@
        
     </head>
     <body>
-     <div class = "page">
-        <header>
-                <img class = "logo" src ="images/logo.png" alt = "logo de l'application"> 
-               
-        </header>
-      
+      <input type = "text" id="Title-of-Todo-list" name = "Title-of-Todo-list" placeholder="choisir un titre :">
+   
+     <div class = "page">      
         <main> 
-           
-            <div class = "image-de-rubrique"> 
-                <label for = "rubrique" class=" gg-add-r"></label>
-                <input type = "file" id ="rubrique" name = "rubrique" accept = "image/png , image/jpg">   
-            </div>
-           
                <div class = "la-todo-list">
-                <section class = "tâches">
-                    
-                    <input type = "text" id = "addTodo" name = "addTodo"> 
-                        <input type = "submit" id = "register" value = "ajouter">
-                        <div class = "btn-filter">
-                            <button class = "btn-tout"> tout</button>
-                            <button class = "btn-encours">A faire</button>
-                            <button class ="btn-fait">Fait</button>
+                    <form class = createTodo>
+                        <input type = "submit" id = "register">
+                        <input type = "submit" id = "modifier" value = modifier>
+                        <div class = "entête">
+                            <input type = "checkbox" id = "1">
+                            <input type = "text" id = "1" name = "todo" placeholder="ajouter une tâche">
                         </div>
-                    <form class ="addElement">
-                            
+                        <div class="todolistGenerate"></div>
+                     
+                        <!-- <input type ="submit" id="submit-info" name = "submit-info"> -->
                     </form>
-                </section>
-                <section class = "commentaire"></section>
+                    <button class = "btn-add-todolist">plus</button>
+                    
               </div> 
         </main>
     </div>
+
     </body>
 </html>
