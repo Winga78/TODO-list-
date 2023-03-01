@@ -2,16 +2,31 @@
   "journal": [
     {
       "id": 1,
-      "titre": "voyages",
+      "titre": "",
       "info": [
         {
           "id_todo": 0,
           "tâches": "acheter une valise et des sacs à dos",
-          "status_termine": true
+          "status_termine": false
         },
         {
           "id_todo": 1,
           "tâches": "prendre de la crème solaire",
+          "status_termine": true
+        },
+        {
+          "id_todo": 2,
+          "tâches": "Acheter un parasol",
+          "status_termine": true
+        },
+        {
+          "id_todo": 3,
+          "tâches": "Acheter un chapeau en paille",
+          "status_termine": false
+        },
+        {
+          "id_todo": 4,
+          "tâches": "prendre des billets d'avion",
           "status_termine": false
         }
       ]

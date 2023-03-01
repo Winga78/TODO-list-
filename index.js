@@ -55,7 +55,7 @@ function POST_Todolist(){
 }
 
 function GET_Todolist(){
-    if(localStorage.getItem('idTitre') != ""){
+    if(localStorage.getItem('idTitre') != "" && nb < 21){
         const divTodoOne = document.querySelector(".entête");
         divTodoOne.innerHTML = "";
         for(let i = 0 ; i<journals.length; i+=1){
@@ -93,16 +93,21 @@ function PUT_Todolist(){
         const arrayTarget = event.target.querySelectorAll("[name=box]");
         const arrayTargetTodo = event.target.querySelectorAll("[name=todo]");
         let arrayTodoList= []
+        console.log(arrayTargetTodo);
         for(let i = 0 ; i< arrayTarget.length ; i+=1){
+           
             if(arrayTarget[i].checked != false){
-                arrayTodoList.push(journals[id-1].info);
-                arrayTodoList[id-1].splice(i,1,{id_todo : i ,tâches:arrayTargetTodo[i].value, status_termine : true});
+                arrayTodoList.push(journals[id-1].info[i]);
+                arrayTodoList.splice(i,1,{id_todo : i ,tâches:arrayTargetTodo[i].value, status_termine : true});
             }
-        }  
+            else 
+            arrayTodoList.push({id_todo: i , tâches : arrayTargetTodo[i].value , status_termine : false})
+        }
+        console.log(arrayTodoList);
         const todolist = {
             id : id,
             titre : titreElement.value,
-            info : arrayTodoList[0]
+            info : arrayTodoList
         }
             const chargeUtile = JSON.stringify(todolist);
             fetch(`http://localhost:8081/journal/${id}`,{
@@ -113,7 +118,10 @@ function PUT_Todolist(){
     })                 
 }
 
-function DELETE_Todolist(){}
+function DELETE_Todolist(){
+    //utiliser PUT pour supprimer des tâches
+    //utiliser localstorage pour stocker nb
+}
 
 EventaddTodoList();
 POST_Todolist();
