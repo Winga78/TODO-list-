@@ -3,6 +3,15 @@ body {
     font-size: 1em;
     background-color: #eac8c1;
 }
+.logo{
+    float: left;
+    margin-top: -20px;
+}
+.chapeau {
+    float : left;
+    margin-left: 180px;
+    margin-top: 50px;
+}
 .page 
 {
     width: 1000px;
@@ -17,18 +26,33 @@ body {
     height: 50px;
     border-radius: 5px;
     border: none;
-    margin-left: 450px;
+    margin-left: -145px;
     font-size: 1.4em;
     font-family: Verdana, Arial,Tahoma,Serif;
 }
 main 
 {
-    padding-top: 100px;
+    padding-top: 60px;
     margin: 100px;
 }
 .createTodo div{
     padding : 10px
 }
+
+.btn {
+    margin-left: 600px;
+    padding : 0px
+}
+#register , #modifier, .btn-add-todolist{
+  padding : 10px;
+  border : solid #eac8c1;
+  border-radius: 10px;
+  background-color: white;
+  font-family: Verdana, Arial,Tahoma,Serif;
+  cursor: pointer;
+  
+}
+
 .todolistGenerate{
     margin-left: -10px;
     margin-top: -10px;
