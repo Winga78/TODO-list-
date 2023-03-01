@@ -1,9 +1,9 @@
 const journals = await fetch('http://localhost:8081/journal').then(journal => journal.json())
-let nb = 1;
-
+const x = parseInt(localStorage.getItem('idTitre'))-1;
+let nb = journals[x].info.length;
 
 function GenerateTodoList() {
-  if(nb < 21) {
+  if(nb < 20) {
   const divCreateTodoElement = document.querySelector(".todolistGenerate"); 
   const divCheckbox = document.createElement("div");
   const inputText = document.createElement("input");
@@ -23,7 +23,7 @@ function GenerateTodoList() {
 function EventaddTodoList() {
     const btnAddTodoList = document.querySelector(".btn-add-todolist");
     btnAddTodoList.addEventListener("click", function(event){
-        nb +=1;
+        localStorage.setItem('nb', nb+=1);
        event.preventDefault();
        GenerateTodoList();
     })
@@ -55,7 +55,7 @@ function POST_Todolist(){
 }
 
 function GET_Todolist(){
-    if(localStorage.getItem('idTitre') != "" && nb < 21){
+    if(localStorage.getItem('idTitre') != ""){
         const divTodoOne = document.querySelector(".entête");
         divTodoOne.innerHTML = "";
         for(let i = 0 ; i<journals.length; i+=1){
