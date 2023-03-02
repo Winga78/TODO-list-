@@ -4,7 +4,7 @@ let nb = 1;
 
 
 function GenerateTodoList() {
-  if(nb < 20) {
+  if(nb < 13) {
   const divCreateTodoElement = document.querySelector(".todolistGenerate"); 
   const divCheckbox = document.createElement("div");
   const inputText = document.createElement("input");
@@ -67,6 +67,10 @@ function GET_Todolist(){
             const btnRegister = document.querySelector('#register');
             btnRegister.disabled = true;
             btnRegister.style.cursor = "no-drop"
+            const deletebtn = document.createElement("button");
+            deletebtn.className = "supprimer";
+            const imgElement = document.createElement("img");
+            imgElement.src = "images/moins.png"
             const divCheckbox = document.createElement("div");
             const inputText = document.createElement("input");
             inputText.type = "text";
@@ -79,8 +83,10 @@ function GET_Todolist(){
             inputCheckbox.name = "box";
             if(journals[id].info[u].status_termine != false)
             inputCheckbox.checked = true;
+            deletebtn.appendChild(imgElement);
             divCheckbox.appendChild(inputCheckbox);
             divCheckbox.appendChild(inputText);
+             divCheckbox.appendChild(deletebtn);
             divCreateTodoElement.appendChild(divCheckbox);
             }
         
@@ -100,11 +106,9 @@ function PUT_Todolist(){
      btnModifier.addEventListener("click", function(event){
         event.preventDefault();
         const id = parseInt(localStorage.getItem("idTitre"));
-        console.log(id);
         const arrayTarget = todoList.querySelectorAll("[name=box]");
         const arrayTargetTodo = todoList.querySelectorAll("[name=todo]");
         let arrayTodoList= []
-        console.log(arrayTargetTodo);
         for(let i = 0 ; i< arrayTarget.length ; i+=1){
            
             if(arrayTarget[i].checked != false){
@@ -114,7 +118,6 @@ function PUT_Todolist(){
             else 
             arrayTodoList.push({id_todo: i , tâches : arrayTargetTodo[i].value , status_termine : false})
         }
-        console.log(arrayTodoList);
         const todolist = {
             id : id,
             titre : titreElement.value,
@@ -130,8 +133,43 @@ function PUT_Todolist(){
 }
 
 function DELETE_Todolist(){
-    //utiliser PUT pour supprimer des tâches
-    //utiliser localstorage pour stocker nb
+    let position =0;
+    const todoList = document.querySelector(".createTodo");
+    const btnSupprimer = document.querySelectorAll(".supprimer");
+    const titreElement = document.querySelector('#Title-of-Todo-list');
+    let arrayTodoList= []
+    console.log(btnSupprimer);
+    for(let u = 0 ; u<journals[id].info.length; u+=1){
+        arrayTodoList.push(journals[id].info[u]);
+    }
+    for(let i = 0 ; i< journals[id].info.length ; i+=1){
+       
+    btnSupprimer[i].addEventListener("click", function(event){
+       
+        event.preventDefault();
+       console.log(event);
+      
+                
+       
+        arrayTodoList.splice(i,1);
+        console.log(arrayTodoList);
+        const todolist = {
+            id : id,
+            titre : titreElement.value,
+            info : arrayTodoList
+        }
+            const chargeUtile = JSON.stringify(todolist);
+            fetch(`http://localhost:8081/journal/${id+1}`,{
+                    method : "PUT",
+                    headers : {"Content-Type": "application/json"},
+                    body : chargeUtile 
+             });       
+        
+    })
+    }
+    
+    
+         
 }
 
 

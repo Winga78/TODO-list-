@@ -73,6 +73,11 @@ main
     margin-left: -10px;
     margin-top: -10px;
 }
+.supprimer {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
 .createTodo input[type="text"]{
     background: none;
     border: none;
