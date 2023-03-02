@@ -2,11 +2,11 @@
   "journal": [
     {
       "id": 1,
-      "titre": "voyage à cancun",
+      "titre": "USA",
       "info": [
         {
           "id_todo": 0,
-          "tâches": "acheter une valise et des sacs à dos",
+          "tâches": "acheter une valise et un sacs à dos",
           "status_termine": false
         },
         {
@@ -97,6 +97,44 @@
         {
           "id_todo": 18,
           "tâches": "",
+          "status_termine": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titre": "australie",
+      "info": [
+        {
+          "id_todo": 0,
+          "tâches": "acheter des jumelles",
+          "status_termine": true
+        },
+        {
+          "id_todo": 1,
+          "tâches": "prendre le bus",
+          "status_termine": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titre": "France",
+      "info": [
+        {
+          "id_todo": 0,
+          "tâches": "acheter un livre",
+          "status_termine": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "titre": "Belgique",
+      "info": [
+        {
+          "id_todo": 0,
+          "tâches": "commander une bière",
           "status_termine": false
         }
       ]
