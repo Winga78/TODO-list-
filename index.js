@@ -2,7 +2,6 @@ const journals = await fetch('http://localhost:8081/journal').then(journal => jo
 let n = parseInt(localStorage.getItem("idTitre"));
 let nb = journals[n].info.length;
 
-
 function GenerateTodoList() {
   if(nb < 13) {
   const divCreateTodoElement = document.querySelector(".todolistGenerate"); 
@@ -24,7 +23,6 @@ function GenerateTodoList() {
 function EventaddTodoList() {
     const btnAddTodoList = document.querySelector(".btn-add-todolist");
     btnAddTodoList.addEventListener("click", function(event){
-        localStorage.setItem('nb', nb+=1);
        event.preventDefault();
        GenerateTodoList();
     })
@@ -103,7 +101,6 @@ function PUT_Todolist(){
     const todoList = document.querySelector(".createTodo");
     const btnModifier = document.querySelector("#modifier");
     const titreElement = document.querySelector('#Title-of-Todo-list');
-    console.log(n)
      btnModifier.addEventListener("click", function(event){
         event.preventDefault();
         const id = n;
