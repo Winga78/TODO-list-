@@ -1,6 +1,6 @@
 const journals = await fetch('http://localhost:8081/journal').then(journal => journal.json())
-const id = parseInt(localStorage.getItem('idTitre'))-1;
-let nb = 1;
+let n = parseInt(localStorage.getItem("idTitre"));
+let nb = journals[n].info.length;
 
 
 function GenerateTodoList() {
@@ -55,14 +55,14 @@ function POST_Todolist(){
     })
 }
 
-function GET_Todolist(){
+function GET_Todolist(n_page){
     const btnModifier = document.getElementById("modifier");
     const titleElement = document.querySelector('#Title-of-Todo-list');
     const divTodoOne = document.querySelector(".entête");
-    if(localStorage.getItem('idTitre') != "" && id < journals.length){
+    if(localStorage.getItem('idTitre') != ""){
         divTodoOne.innerHTML = "";
-        for(let u = 0 ; u <journals[id].info.length; u+=1){
-            titleElement.value = journals[id].titre;
+        for(let u = 0 ; u <journals[n_page].info.length; u+=1){
+            titleElement.value = journals[n_page].titre;
             const divCreateTodoElement = document.querySelector(".todolistGenerate"); 
             const btnRegister = document.querySelector('#register');
             btnRegister.disabled = true;
@@ -74,14 +74,14 @@ function GET_Todolist(){
             const divCheckbox = document.createElement("div");
             const inputText = document.createElement("input");
             inputText.type = "text";
-            inputText.id = nb;
+            inputText.id = u;
             inputText.name = "todo"; 
-            inputText.value = journals[id].info[u].tâches
+            inputText.value = journals[n_page].info[u].tâches
             const inputCheckbox = document.createElement("input");
             inputCheckbox.type = "checkbox";
-            inputCheckbox.id = nb; 
+            inputCheckbox.id = u; 
             inputCheckbox.name = "box";
-            if(journals[id].info[u].status_termine != false)
+            if(journals[n_page].info[u].status_termine != false)
             inputCheckbox.checked = true;
             deletebtn.appendChild(imgElement);
             divCheckbox.appendChild(inputCheckbox);
@@ -103,16 +103,18 @@ function PUT_Todolist(){
     const todoList = document.querySelector(".createTodo");
     const btnModifier = document.querySelector("#modifier");
     const titreElement = document.querySelector('#Title-of-Todo-list');
+    console.log(n)
      btnModifier.addEventListener("click", function(event){
         event.preventDefault();
-        const id = parseInt(localStorage.getItem("idTitre"));
+        const id = n;
         const arrayTarget = todoList.querySelectorAll("[name=box]");
         const arrayTargetTodo = todoList.querySelectorAll("[name=todo]");
         let arrayTodoList= []
+       
         for(let i = 0 ; i< arrayTarget.length ; i+=1){
            
             if(arrayTarget[i].checked != false){
-                arrayTodoList.push(journals[id-1].info[i]);
+                arrayTodoList.push(journals[id].info[i]);
                 arrayTodoList.splice(i,1,{id_todo : i ,tâches:arrayTargetTodo[i].value, status_termine : true});
             }
             else 
@@ -139,46 +141,58 @@ function DELETE_Todolist(){
     const titreElement = document.querySelector('#Title-of-Todo-list');
     let arrayTodoList= []
     console.log(btnSupprimer);
-    for(let u = 0 ; u<journals[id].info.length; u+=1){
-        arrayTodoList.push(journals[id].info[u]);
+    for(let u = 0 ; u<journals[n].info.length; u+=1){
+        arrayTodoList.push(journals[n].info[u]);
     }
-    for(let i = 0 ; i< journals[id].info.length ; i+=1){
-       
-    btnSupprimer[i].addEventListener("click", function(event){
-       
+    for(let i = 0 ; i< journals[n].info.length ; i+=1){    
+    btnSupprimer[i].addEventListener("click", function(event){   
         event.preventDefault();
-       console.log(event);
-      
-                
-       
         arrayTodoList.splice(i,1);
-        console.log(arrayTodoList);
         const todolist = {
-            id : id,
+            id : n,
             titre : titreElement.value,
             info : arrayTodoList
         }
             const chargeUtile = JSON.stringify(todolist);
-            fetch(`http://localhost:8081/journal/${id+1}`,{
+            fetch(`http://localhost:8081/journal/${n}`,{
                     method : "PUT",
                     headers : {"Content-Type": "application/json"},
                     body : chargeUtile 
-             });       
-        
+             });         
     })
-    }
-    
-    
-         
+    }     
 }
 
+function PageSuivante()
+{
+    let s = parseInt(localStorage.getItem("idTitre"));
+    const btnPlus =  document.querySelector(".categorie");
+    GET_Todolist(s);
+    btnPlus.addEventListener("click", function(event){
+           n+=1
+        if(n < journals.length)
+        {
+            event.preventDefault();
+             localStorage.setItem("idTitre", n)
+            document.querySelector(".todolistGenerate").innerHTML = "";
+            GET_Todolist(n)
+        }
+        else{
+            n=0;
+            localStorage.setItem("idTitre", n)
+            document.querySelector(".todolistGenerate").innerHTML = "";
+            GET_Todolist(n)
+        }
+       
+    })
+  
+}
 
+PageSuivante();
 EventaddTodoList();
 POST_Todolist();
-GET_Todolist();
 PUT_Todolist();
 DELETE_Todolist();
-
 
 
 // async function DeleteStain(){

@@ -1,83 +1,7 @@
 {
   "journal": [
     {
-      "id": 1,
-      "titre": "USA",
-      "info": [
-        {
-          "id_todo": 0,
-          "tâches": "acheter une valise et un sacs à dos",
-          "status_termine": false
-        },
-        {
-          "id_todo": 1,
-          "tâches": "prendre de la crème solaire",
-          "status_termine": true
-        },
-        {
-          "id_todo": 2,
-          "tâches": "Acheter un parasol",
-          "status_termine": true
-        },
-        {
-          "id_todo": 3,
-          "tâches": "Acheter un chapeau en paille",
-          "status_termine": false
-        },
-        {
-          "id_todo": 4,
-          "tâches": "prendre des billets d'avion",
-          "status_termine": false
-        },
-        {
-          "id_todo": 5,
-          "tâches": "prendre un parasol ",
-          "status_termine": false
-        },
-        {
-          "id_todo": 6,
-          "tâches": "prendre des vêtements léger",
-          "status_termine": false
-        },
-        {
-          "id_todo": 7,
-          "tâches": "louer un véhicule de vacance",
-          "status_termine": false
-        },
-        {
-          "id_todo": 8,
-          "tâches": "prendre des cours de surf chez surfwave",
-          "status_termine": false
-        },
-        {
-          "id_todo": 9,
-          "tâches": "réserver une chambre d'hôtel chez Bookingsoon ",
-          "status_termine": true
-        },
-        {
-          "id_todo": 10,
-          "tâches": "louer un van avec la carte de Gaby",
-          "status_termine": false
-        },
-        {
-          "id_todo": 11,
-          "tâches": "",
-          "status_termine": false
-        },
-        {
-          "id_todo": 12,
-          "tâches": "",
-          "status_termine": false
-        },
-        {
-          "id_todo": 13,
-          "tâches": "",
-          "status_termine": false
-        }
-      ]
-    },
-    {
-      "id": 2,
+      "id": 0,
       "titre": "australie",
       "info": [
         {
@@ -87,30 +11,87 @@
         },
         {
           "id_todo": 1,
-          "tâches": "prendre le bus",
+          "tâches": "voir les crocodiles Jeudi soir",
+          "status_termine": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "titre": "australie",
+      "info": [
+        {
+          "id_todo": 0,
+          "tâches": "acheter des jumelles",
+          "status_termine": true
+        },
+        {
+          "id_todo": 1,
+          "tâches": "prendre le bus à 00h",
+          "status_termine": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titre": "France",
+      "info": [
+        {
+          "id_todo": 0,
+          "tâches": "acheter un livre",
+          "status_termine": true
+        },
+        {
+          "id_todo": 1,
+          "tâches": "prendre l'avion tous les mardis",
           "status_termine": false
         }
       ]
     },
     {
       "id": 3,
-      "titre": "France",
+      "titre": "Belgique",
       "info": [
         {
-          "id_todo": 0,
-          "tâches": "acheter un livre",
+          "id_todo": 1,
+          "tâches": "prendre des fruits de mer",
           "status_termine": false
         }
       ]
     },
     {
       "id": 4,
-      "titre": "Belgique",
+      "titre": "Ma to do list",
       "info": [
         {
           "id_todo": 0,
-          "tâches": "commander une bière",
+          "tâches": "appeler mon bb",
+          "status_termine": true
+        },
+        {
+          "id_todo": 1,
+          "tâches": "faire du sport",
+          "status_termine": true
+        },
+        {
+          "id_todo": 2,
+          "tâches": "travailler sur mes projets",
+          "status_termine": true
+        },
+        {
+          "id_todo": 3,
+          "tâches": "aller au travail",
+          "status_termine": true
+        },
+        {
+          "id_todo": 4,
+          "tâches": "dormir",
           "status_termine": false
+        },
+        {
+          "id_todo": 5,
+          "tâches": "manger",
+          "status_termine": true
         }
       ]
     }
