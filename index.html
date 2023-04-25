@@ -10,9 +10,14 @@
     <body>
       <input type = "text" id="Title-of-Todo-list" name = "Title-of-Todo-list" placeholder="choisir un titre :">
       <img class = "logo" src="./images/logo.png">
-      <img class = "chapeau" src="./images/chapeau.png">
+      <img class = "deco" src="./images/deco.png">
+      <div id = "slide">
       <button class = "categorie"><img src = "./images/flèche.png" alt ="img"></button>
+      <button class = "categorie_gauche"><img src = "./images/flèche-gauche.png" alt ="img"></button>
+    </div>
+    <p>Page : <i id ="num"></i></p>
      <div class = "page"> 
+      
         <main> 
                <div class = "la-todo-list">
                     <form class = createTodo>
@@ -20,14 +25,9 @@
                         <input type = "submit" id = "register">
                         <input type = "submit" id = "modifier" value = modifier>
                     </div> 
-                        <div class = "entête">
-                       
-                            <input type = "checkbox" id = "1">
-                            <input type = "text" id = "1" name = "todo" placeholder="ajouter une tâche">
-                        </div>
+                        <div class = "entête"></div>
                         <div class="todolistGenerate"></div>
                      
-                        <!-- <input type ="submit" id="submit-info" name = "submit-info"> -->
                     </form>
                     <button class = "btn-add-todolist">plus</button>
                     

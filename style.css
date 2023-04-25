@@ -1,31 +1,36 @@
 body {
     font-family: Verdana, Arial,Tahoma,Serif;
     font-size: 1em;
-    background-color: #eac8c1;
+    /* background-color: #eac8c1; */
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ae2fa3ca-0851-4f3c-b276-0c5b7412e428/dcm0jlx-41a69850-a357-4921-b72e-81d8cacb68ad.png/v1/fill/w_1024,h_976/koi_fishes_by_snatti89_dcm0jlx-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTc2IiwicGF0aCI6IlwvZlwvYWUyZmEzY2EtMDg1MS00ZjNjLWIyNzYtMGM1Yjc0MTJlNDI4XC9kY20wamx4LTQxYTY5ODUwLWEzNTctNDkyMS1iNzJlLTgxZDhjYWNiNjhhZC5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.GDB93HZQoQQ4JIp5IQvoDqj5AyEpfiDFuTji4yh5kGo);
 }
 .logo{
     float: left;
     margin-top: -20px;
 }
-.chapeau {
+
+.categorie{
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    padding-top: 7px;
+    border-radius: 5px;
+    
+}
+.deco {
     float : left;
     margin-left: 180px;
     margin-top: 50px;
 }
-.categorie{
-    /* margin-left : 1500px; */
-    /* margin-top: 200px;
-    padding :100px;
-    border : 1px solid #eac8c1;
-    position: absolute;
-    border-radius: 10px;
-    background-color: white;
-    width: 200px;
-    height: 200px; */
-    background-color: #eac8c1;
+
+.categorie_gauche
+{
+    /* background-color: none; */
     border: none;
     cursor: pointer;
-    
+    opacity: 0.6;
+    padding-top: 7px;
+    border-radius: 5px;
 }
 .page 
 {
@@ -34,22 +39,26 @@ body {
     margin : auto;
     background-color: white;
     border-radius: 20px;
-    margin-top: 100px;
+    margin-top: 160px;
 }
 #Title-of-Todo-list{
-    width: 1100px;
+    width: 1000px;
     height: 50px;
-    border-radius: 5px;
     border: none;
-    margin-left: -145px;
-    font-size: 1.4em;
-    font-family: Verdana, Arial,Tahoma,Serif;
+    font-weight: bold;
+    margin-left: -170px;
+    font-size: 1.3em;
+    color : #D1891D;
+    background: none;
+    border-bottom: 1px solid;
+    text-align: center;
 }
 
 main 
 {
     padding-top: 60px;
     margin: 100px;
+ 
 }
 .createTodo div{
     padding : 10px
@@ -61,7 +70,7 @@ main
 }
 #register , #modifier, .btn-add-todolist{
   padding : 10px;
-  border : solid #eac8c1;
+  border : solid #D1891D;
   border-radius: 10px;
   background-color: white;
   font-family: Verdana, Arial,Tahoma,Serif;
@@ -91,7 +100,11 @@ main
     outline: none;
 }
 
-
+#slide{
+    position: relative;
+    margin-left: 1500px;
+    margin-top: -50px;
+}
 
 
 /* input[type="checkbox"]{

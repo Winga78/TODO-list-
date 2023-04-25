@@ -1,135 +1,18 @@
 {
   "journal": [
     {
-      "id": 0,
-      "titre": "australie",
-      "info": [
-        {
-          "id_todo": 0,
-          "tâches": "acheter des jumelles",
-          "status_termine": true
-        },
-        {
-          "id_todo": 1,
-          "tâches": "voir les crocodiles Jeudi soir",
-          "status_termine": false
-        }
-      ]
-    },
-    {
       "id": 1,
-      "titre": "australie",
+      "titre": "Voyage au sud de la france",
       "info": [
         {
           "id_todo": 0,
-          "tâches": "acheter des jumelles",
-          "status_termine": true
+          "tâches": "acheter de la crème solaire",
+          "status_termine": false
         },
         {
           "id_todo": 1,
-          "tâches": "prendre le bus à 00h",
+          "tâches": "acheter un aero spray ",
           "status_termine": true
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "titre": "France",
-      "info": [
-        {
-          "id_todo": 0,
-          "tâches": "acheter un livre",
-          "status_termine": true
-        },
-        {
-          "id_todo": 1,
-          "tâches": "prendre l'avion tous les mardis",
-          "status_termine": false
-        },
-        {
-          "id_todo": 2,
-          "tâches": "ok",
-          "status_termine": false
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "titre": "Belgique",
-      "info": [
-        {
-          "id_todo": 1,
-          "tâches": "prendre des fruits de mer",
-          "status_termine": false
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "titre": "Ma to do list",
-      "info": [
-        {
-          "id_todo": 0,
-          "tâches": "appeler mon bb",
-          "status_termine": true
-        },
-        {
-          "id_todo": 1,
-          "tâches": "faire du sport",
-          "status_termine": true
-        },
-        {
-          "id_todo": 2,
-          "tâches": "travailler sur mes projets",
-          "status_termine": true
-        },
-        {
-          "id_todo": 3,
-          "tâches": "aller au travail",
-          "status_termine": true
-        },
-        {
-          "id_todo": 4,
-          "tâches": "dormir",
-          "status_termine": false
-        },
-        {
-          "id_todo": 5,
-          "tâches": "manger",
-          "status_termine": true
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "titre": "ny",
-      "info": [
-        {
-          "id_todo": 0,
-          "tâches": "prendre des lunettes de soleil",
-          "status_termine": false
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "titre": "u",
-      "info": [
-        {
-          "id_todo": 0,
-          "tâches": "uuuu",
-          "status_termine": false
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "titre": "uu",
-      "info": [
-        {
-          "id_todo": 0,
-          "tâches": "uu",
-          "status_termine": false
         }
       ]
     }
