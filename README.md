@@ -1,22 +1,23 @@
 # TODO-list-
 
-Etape 1 
+## Etape 1 
 
-Lancer le projet 
+### Lancer le projet 
 
-`print(cd TODO-list-)`
+`cd TODO-list-`
 
-`print(npm install)`
+`npm install`
 
-`print(npm run dev)`
-
-
-Etape 2 
-
-Lancer le serveur json 
-
-`print(cd backend )`
-
-`print(json-server --watch db.json --port 3000)`
+`npm run dev`
 
 
+## Etape 2 
+
+### Lancer le serveur json 
+
+`cd backend `
+
+`json-server --watch db.json --port 3000`
+
+
+![page](/images/page todo_liste)
